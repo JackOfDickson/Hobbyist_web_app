@@ -14,8 +14,17 @@ member_repository.delete_all()
 
 lesson1 = Lesson("Cake Baking")
 lesson_repository.save(lesson1)
+lesson2 = Lesson("Watercolour painting")
+lesson_repository.save(lesson2)
 
 member1 = Member("Carl Marks")
 member_repository.save(member1)
+member2 = Member("Walter White")
+member_repository.save(member2)
 
 booking1 = Booking(member1, lesson1)
+booking_repository.save(booking1)
+booking2 = Booking(member2, lesson1)
+booking_repository.save(booking2)
+booking3 = Booking(member2, lesson2)
+booking_repository.save(booking3)

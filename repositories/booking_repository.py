@@ -6,7 +6,7 @@ import repositories.member_repository as member_repository
 
 def save(booking):
     sql = "INSERT INTO bookings (member_id, lesson_id) VALUES (%s, %s) RETURNING id"
-    values = [booking.member_id, booking.lesson_id]
+    values = [booking.member.id, booking.lesson.id]
     results = run_sql(sql, values)
     booking.id = results[0]['id']
     return booking
