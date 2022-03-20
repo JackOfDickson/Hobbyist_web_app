@@ -15,7 +15,7 @@ def select_all():
     results = run_sql(sql)
     
     for row in results:
-        member = Member(row['title'], row['id'])
+        member = Member(row['name'], row['id'])
         members.append(member)
     return members
 
@@ -27,7 +27,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     
     if result is not None:
-        member = Lesson(result['title'], result['id'])
+        member = Member(result['name'], result['id'])
     return member
 
 def delete_all():
