@@ -1,19 +1,19 @@
-DROP TABLE bookings;
-DROP TABLE lessons;
-DROP TABLE members;
+DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS lessons;
+DROP TABLE IF EXISTS members;
 
-INSERT TABLE members {
+CREATE TABLE members (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
-};
+);
 
-INSERT TABLE lessons {
+CREATE TABLE lessons (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255)
-};
+);
 
-INSERT TABLE bookings {
+CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    lesson_id INT REFERENCES lesson(id) ON DELETE CASCADE
-};
+    lesson_id INT REFERENCES lessons(id) ON DELETE CASCADE
+);
