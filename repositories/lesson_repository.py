@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.lesson import Lesson
+from models.member import Member
 
 def save(lesson):
     sql = "INSERT INTO lessons (title) VALUES (%s) RETURNING id"
@@ -35,3 +36,15 @@ def delete_all():
     run_sql(sql)
     
 # delete individual id for extension
+
+def members(lesson):
+    members = []
+    
+    sql = 'SELECT * FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE lesson_id = %s'
+    values = [lesson.id]
+    results = run_sql(sql, values)
+    
+    for row in results:
+        member = Member(row['name'], row['id'])
+        members.append(member)
+    return members

@@ -2,7 +2,12 @@
 {% block content %}
 <h1>{{lesson.title}}</h1>
 
-<p>{{lesson.id}}</p>
+<p>Lesson Reference: {{lesson.id}}</p>
 
-<p>Attendies:</p>
+<h2>Attendees:</h2>
+<ul>
+{% for member in members %}
+    <li>{{member.name}}</li>
+{% endfor %}
+</ul>
 {% endblock %}

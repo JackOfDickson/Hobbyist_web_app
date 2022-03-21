@@ -9,6 +9,7 @@ def lessons():
     return render_template("lessons/index.html", lessons = lessons)
 
 @lessons_blueprint.route("/lessons/<id>")
-def lesson(id):
+def show(id):
     lesson = lesson_repository.select(id)
-    return render_template("/lessons/show.html", lesson = lesson)
+    members = lesson_repository.members(lesson)
+    return render_template("/lessons/show.html", lesson = lesson, members = members)
