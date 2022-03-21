@@ -34,4 +34,12 @@ def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
     
-# delete individual id for extension
+# def delete(id):
+#     sql = "DELETE FROM members WHERE id = %s"
+#     values = [id]
+#     run_sql(sql, values)
+    
+def update(member):
+    sql = "UPDATE member SET (name) WHERE id = %s"
+    values = [member.name, member.id]
+    run_sql(sql, values)

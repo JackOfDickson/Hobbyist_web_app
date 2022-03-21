@@ -39,4 +39,7 @@ def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
     
-# delete individual id for extension
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

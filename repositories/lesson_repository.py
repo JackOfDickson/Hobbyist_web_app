@@ -35,7 +35,10 @@ def delete_all():
     sql = "DELETE FROM lessons"
     run_sql(sql)
     
-# delete individual id for extension
+# def delete(id):
+#     sql = "DELETE FROM lessons WHERE id = %s"
+#     values = [id]
+#     run_sql(sql, values)
 
 def members(lesson):
     members = []
@@ -48,3 +51,8 @@ def members(lesson):
         member = Member(row['name'], row['id'])
         members.append(member)
     return members
+
+def update(lesson):
+    sql = "UPDATE lesson SET (title) WHERE id = %s"
+    values = [lesson.title, lesson.id]
+    run_sql(sql, values)
