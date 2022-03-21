@@ -17,10 +17,10 @@ def new_booking():
     lessons = lesson_repository.select_all()
     return render_template("bookings/new.html", members = members, lessons = lessons)
 
-@bookings_blueprint.route('/bookings')
+@bookings_blueprint.route('/bookings', methods = ['POST'])
 def create_booking():
     member_id = request.form['member_id']
-    lesson_id = request.form['lessson_id']
+    lesson_id = request.form['lesson_id']
     member = member_repository.select(member_id)
     lesson = lesson_repository.select(lesson_id)
     booking = Booking(member,lesson)
