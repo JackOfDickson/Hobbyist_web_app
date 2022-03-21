@@ -43,7 +43,7 @@ def delete_all():
 def lessons(member):
     lessons = []
     
-    sql = 'SELECT * FROM lessons INNER JOIN bookings ON bookings.lesson_id = lesson.id WHERE member_id = %s'
+    sql = 'SELECT * FROM lessons INNER JOIN bookings ON bookings.lesson_id = lessons.id WHERE member_id = %s'
     values = [member.id]
     results = run_sql(sql, values)
     
