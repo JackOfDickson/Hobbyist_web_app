@@ -53,6 +53,6 @@ def members(lesson):
     return members
 
 def update(lesson):
-    sql = "UPDATE lesson SET (title) WHERE id = %s"
+    sql = "UPDATE lessons SET title = %s WHERE id = %s"
     values = [lesson.title, lesson.id]
     run_sql(sql, values)

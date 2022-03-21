@@ -25,3 +25,15 @@ def create_lesson():
     lesson = Lesson(title)
     lesson_repository.save(lesson)
     return redirect ('/lessons')
+
+@lessons_blueprint.route("/lessons/<id>/edit", methods = ['GET'])
+def edit_lesson(id):
+    lesson = lesson_repository.select(id)
+    return render_template('lessons/edit.html', lesson = lesson)
+
+@lessons_blueprint.route("/lessons/<id>", methods=['POST'])
+def update_lesson(id):
+    title = request.form['title']
+    lesson = Lesson(title, id)
+    lesson_repository.update(lesson)
+    return redirect ('/lessons')
