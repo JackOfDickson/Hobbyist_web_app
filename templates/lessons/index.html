@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<h1>Some upcoming lessons...</h1>
+{% for lesson in lessons %}
+<ul>
+    <li><a href="/lessons/{{lesson.id}}">{{lesson.title}}</a></li>
+</ul>
+{% endfor %}
 {% endblock %}
