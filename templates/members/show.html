@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{member.name}}</h1>
+<ul>
+{% for lesson in lessons %}
+    <li> {{lesson.title}} </li>
+{% endfor %}
+</ul>
+{% endblock %}

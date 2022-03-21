@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Our members</h1>
-
-{% for member in members %}
 <ul>
-    <li> {{member.name}} </li>
-</ul>
+{% for member in members %}
+    <li><a href="/members/{{member.id}}"> {{member.name}} </a></li>
 {% endfor %}
+</ul>
 {% endblock %}
