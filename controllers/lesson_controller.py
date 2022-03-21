@@ -13,3 +13,14 @@ def show(id):
     lesson = lesson_repository.select(id)
     members = lesson_repository.members(lesson)
     return render_template("/lessons/show.html", lesson = lesson, members = members)
+
+@lessons_blueprint.route("/lessons/new", methods = ['GET'])
+def new_member():
+    return render_template ('lessons/new.html')
+
+@lessons_blueprint.route("/lessons", methods=['POST'])
+def create_user():
+    title = request.form['title']
+    lesson = lesson(title)
+    lesson_repository.save(lesson)
+    return redirect ('/lessons')
