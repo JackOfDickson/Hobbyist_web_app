@@ -7,6 +7,9 @@
         <nav>
             <ul>
                 <li>
+                    <a href="/">Home Page</a>
+                </li>
+                <li>
                     <a href="/members">Current Members</a>
                 </li>
                 <li>
@@ -20,8 +23,11 @@
                 </li>
             </ul>
         </nav>
+        <section id = "content">
+            {% block content %}
 
+            {% end block %}
+        </section>
     </main>
 </body>
-
 </html>
