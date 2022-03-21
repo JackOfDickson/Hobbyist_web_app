@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Blueprint, redirect, request
 import repositories.lesson_repository as lesson_repository
+from models.lesson import Lesson
 
 lessons_blueprint = Blueprint("lessons", __name__)
 
@@ -19,8 +20,8 @@ def new_member():
     return render_template ('lessons/new.html')
 
 @lessons_blueprint.route("/lessons", methods=['POST'])
-def create_user():
+def create_lesson():
     title = request.form['title']
-    lesson = lesson(title)
+    lesson = Lesson(title)
     lesson_repository.save(lesson)
     return redirect ('/lessons')

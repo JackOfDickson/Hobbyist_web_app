@@ -16,7 +16,7 @@ def new_member():
     return render_template ('members/new.html')
 
 @members_blueprint.route("/members", methods=['POST'])
-def create_user():
+def create_member():
     name = request.form['name']
     member = Member(name)
     member_repository.save(member)
