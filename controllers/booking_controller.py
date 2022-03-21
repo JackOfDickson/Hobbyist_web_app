@@ -9,7 +9,7 @@ bookings_blueprint = Blueprint("bookings", __name__)
 @bookings_blueprint.route('/bookings')
 def bookings():
     bookings = booking_repository.select_all()
-    return render_template("bookings.html", bookings = bookings)
+    return render_template("bookings/index.html", bookings = bookings)
 
 @bookings_blueprint.route('/bookings/new', methods = ['GET'])
 def new_booking():
