@@ -17,3 +17,8 @@ ul {
     margin: 0px;
     list-style-type: none;
   }
+
+a, a:link, a:visited {
+    color: #ffffff;
+    text-decoration: none;
+    }
