@@ -4,7 +4,19 @@ from models.booking import Booking
 import repositories.lesson_repository as lesson_repository
 import repositories.member_repository as member_repository
 
+def check_capacity(booking):
+    lesson = booking.lesson
+    number_signed_up = len(lesson_repository.members(lesson))
+    if lesson.capacity >= number_signed_up:
+        return False
+    else:
+        return True
+
 def save(booking):
+    is_full = check_capacity(booking)
+    if is_full == True:
+        return "error, room is full"
+    
     sql = "INSERT INTO bookings (member_id, lesson_id) VALUES (%s, %s) RETURNING id"
     values = [booking.member.id, booking.lesson.id]
     results = run_sql(sql, values)
