@@ -9,7 +9,8 @@ CREATE TABLE members (
 
 CREATE TABLE lessons (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255)
+    title VARCHAR(255),
+    capacity INT
 );
 
 CREATE TABLE bookings (
