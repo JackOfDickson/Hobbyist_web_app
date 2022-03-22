@@ -2,15 +2,13 @@
 <head>
     <title>Hobbyist</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/page_header.css')}}">
 </head>
 <body>
     <main id = "navigation_bar">
-        <h1>Hobbyist</h1>
+        <h1 id="Hobbyist"><a href="/">Hobbyist</a></h1>
         <nav>
-            <ul>
-                <li>
-                    <a href="/">Home Page</a>
-                </li>
+            <ul id = "navigation">
                 <li>
                     <a href="/members">Current Members</a>
                 </li>

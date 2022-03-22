@@ -1,0 +1,23 @@
+#navigation_bar {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 150px;
+    grid-template-areas: 
+    "hobbyist navigation";
+}
+
+#Hobbyist {
+    grid-area: hobbyist;
+    margin: 0;
+}
+
+#navigation {
+    grid-area: navigation;
+    display: flex;
+    align-content: flex-end;
+    gap:10px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: 60px;
+    list-style-type: none;
+}
