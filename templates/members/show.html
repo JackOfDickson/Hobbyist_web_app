@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{member.name}} <a href="/members/{{member.id}}/edit">edit</a></h1>
+<h2>{{member.name}} <a href="/members/{{member.id}}/edit">edit</a></h2>
 <ul>
 {% for lesson in lessons %}
     <li> {{lesson.title}} </li>

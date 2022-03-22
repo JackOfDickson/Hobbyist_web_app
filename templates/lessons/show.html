@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{lesson.title}} <a href="/lessons/{{lesson.id}}/edit">edit</a></h1>
+<h2>{{lesson.title}} <a href="/lessons/{{lesson.id}}/edit">edit</a></h2>
 
 <p>Lesson Reference: {{lesson.id}}</p>
 
-<h2>Attendees:</h2>
+<h3>Attendees:</h3>
 <ul>
 {% for member in members %}
     <li>{{member.name}}</li>

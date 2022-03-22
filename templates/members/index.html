@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Our members</h1>
+<h2>Our members</h2>
 <ul>
 {% for member in members %}
     <li><a href="/members/{{member.id}}"> {{member.name}} </a></li>
