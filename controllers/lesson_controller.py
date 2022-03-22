@@ -22,7 +22,9 @@ def new_member():
 @lessons_blueprint.route("/lessons", methods=['POST'])
 def create_lesson():
     title = request.form['title']
-    lesson = Lesson(title)
+    capacity = request.form['capacity']
+    lesson_date = request.form['lesson_date']
+    lesson = Lesson(title, capacity, lesson_date)
     lesson_repository.save(lesson)
     return redirect ('/lessons')
 
