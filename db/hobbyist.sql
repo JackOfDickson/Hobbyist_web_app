@@ -10,7 +10,8 @@ CREATE TABLE members (
 CREATE TABLE lessons (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
-    capacity INT
+    capacity INT,
+    lesson_date DATE not NULL
 );
 
 CREATE TABLE bookings (

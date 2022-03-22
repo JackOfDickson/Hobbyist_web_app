@@ -12,9 +12,9 @@ lesson_repository.delete_all()
 member_repository.delete_all()
 
 
-lesson1 = Lesson("Cake Baking", 10)
+lesson1 = Lesson("Cake Baking", 10, "2022-03-29")
 lesson_repository.save(lesson1)
-lesson2 = Lesson("Watercolour painting", 12)
+lesson2 = Lesson("Watercolour painting", 12, "2022-03-29")
 lesson_repository.save(lesson2)
 
 member1 = Member("Carl Marks")

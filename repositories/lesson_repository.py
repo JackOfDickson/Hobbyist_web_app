@@ -3,8 +3,8 @@ from models.lesson import Lesson
 from models.member import Member
 
 def save(lesson):
-    sql = "INSERT INTO lessons (title, capacity) VALUES (%s, %s) RETURNING id"
-    values = [lesson.title, lesson.capacity]
+    sql = "INSERT INTO lessons (title, capacity, lesson_date) VALUES (%s, %s, %s) RETURNING id"
+    values = [lesson.title, lesson.capacity, lesson.lesson_date]
     results = run_sql(sql, values)
     lesson.id = results[0]['id']
     return lesson
@@ -16,7 +16,7 @@ def select_all():
     results = run_sql(sql)
     
     for row in results:
-        lesson = Lesson(row['title'], row['capacity'], row['id'])
+        lesson = Lesson(row['title'], row['capacity'],row['lesson_date'], row['id'])
         lessons.append(lesson)
     return lessons
 
@@ -28,7 +28,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     
     if result is not None:
-        lesson = Lesson(result['title'], result['capacity'], result['id'])
+        lesson = Lesson(result['title'], result['capacity'], result['lesson_date'], result['id'])
     return lesson
 
 def delete_all():
@@ -53,6 +53,6 @@ def members(lesson):
     return members
 
 def update(lesson):
-    sql = "UPDATE lessons SET (title, capacity) = (%s, %s) WHERE id = %s"
-    values = [lesson.title, lesson.capacity, lesson.id]
+    sql = "UPDATE lessons SET (title, capacity, lesson_date) = (%s, %s, %s) WHERE id = %s"
+    values = [lesson.title, lesson.capacity, lesson.date, lesson.id]
     run_sql(sql, values)
