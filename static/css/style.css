@@ -1,3 +1,19 @@
 body {
     font-family: 'Trebuchet MS', sans-serif;
+    background-color: #47bfef;
+    color: aliceblue;
+    
 }
+
+#content {
+    padding-left: 20px;
+    padding-bottom: 100px;
+    padding-top: 2px;
+    background-color: #26547c;
+}
+
+ul {
+    padding-left: 10px;
+    margin: 0px;
+    list-style-type: none;
+  }

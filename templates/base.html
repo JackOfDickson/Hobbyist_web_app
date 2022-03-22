@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/page_header.css')}}">
 </head>
 <body>
-    <main id = "navigation_bar">
+    <main>
+    <header id = "navigation_bar">
         <h1 id="Hobbyist"><a href="/">Hobbyist</a></h1>
         <nav>
             <ul id = "navigation">
@@ -26,6 +27,7 @@
                 </li>
             </ul>
         </nav>
+    </header>
         <section id = "content">
             {% block content %}
 
