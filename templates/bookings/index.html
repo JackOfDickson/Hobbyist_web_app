@@ -5,7 +5,7 @@
 {% for booking in bookings %}
     <li>{{booking.member.name}} - {{booking.lesson.title}}</li>
     <ul>
-        <li><a class="navigation_link" href="bookings/{{booking.id}}/delete">X</a></li>
+        <li><a class="delete" href="bookings/{{booking.id}}/delete">X</a></li>
     </ul>
     <br>
 {% endfor %}
