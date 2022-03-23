@@ -25,6 +25,7 @@ If you need to close the app you can press control and c to stop the webpage fro
 ## Navigating the website!
 Once on the website you can click the following on the header of the page:
 - Hobbyist:
+
 Brings you to the homepage which also has some intructions for navigating the website
 
 - Current Members
