@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{member.name}} <a href="/members/{{member.id}}/edit">edit</a></h2>
-<p><a href="/members/{{member.id}}/delete">Delete member</a></p>
+<h2>{{member.name}}</h2>
+<p><a class="edit" href="/members/{{member.id}}/edit">edit</a> <a class="delete" href="/members/{{member.id}}/delete">Delete member</a></p>
 
 <h3>Participating in the following lessons:</h3>
 <ul>
