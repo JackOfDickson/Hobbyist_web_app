@@ -3,7 +3,7 @@
 <h2>Bookings</h2>
 {% for booking in bookings %}
 <ul>
-    <li>{{booking.member.name}} - {{booking.lesson.title}}</li>
+    <li>{{booking.member.name}} - {{booking.lesson.title}}          <a href="bookings/{{booking.id}}/delete">X</a></li>
 </ul>
 {% endfor %}
 {% endblock %}
