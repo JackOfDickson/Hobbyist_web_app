@@ -1,3 +1,25 @@
-#edit {
-    color: red
+.edit {
+    padding: 2px;
+    background-color: grey;
+    border: 5px;
+    border-color: black
+}
+
+.edit:hover {
+    color: red;
+
+}
+
+.delete {
+    padding: 2px;
+    background-color: grey;
+    color: red;
+}
+
+.delete:hover {
+    color: rgb(255, 73, 73);
+}
+
+.navigation:hover {
+
 }

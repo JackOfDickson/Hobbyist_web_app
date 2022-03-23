@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{lesson.title}} <a href="/lessons/{{lesson.id}}/edit">edit</a></h2>
-<p><a href="/lessons/{{lesson.id}}/delete">Cancel Lesson</a></p>
+<h2>{{lesson.title}} <a class="edit" href="/lessons/{{lesson.id}}/edit">edit</a></h2>
+<p><a class="delete" href="/lessons/{{lesson.id}}/delete">Cancel Lesson</a></p>
 <p>Lesson Capacity: {{lesson.capacity}}</p>
 
 <h3>Attendees:</h3>
