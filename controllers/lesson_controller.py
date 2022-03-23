@@ -40,7 +40,7 @@ def update_lesson(id):
     lesson_repository.update(lesson)
     return redirect ('/lessons')
 
-@lessons_blueprint.route("/lessons/<id>/delete", methods = ['POST'])
+@lessons_blueprint.route("/lessons/<id>/delete")
 def delete_lesson(id):
     lesson_repository.delete(id)
     return redirect ('/lessons')
