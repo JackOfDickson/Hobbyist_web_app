@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Bookings</h2>
-{% for booking in bookings %}
 <ul>
-    <li>{{booking.member.name}} - {{booking.lesson.title}}          <a href="bookings/{{booking.id}}/delete">X</a></li>
-</ul>
+{% for booking in bookings %}
+    <li>{{booking.member.name}} - {{booking.lesson.title}}</li>
+    <ul>
+        <li><a href="bookings/{{booking.id}}/delete">X</a></li>
+    </ul>
+    <br>
 {% endfor %}
+</ul>
 {% endblock %}
