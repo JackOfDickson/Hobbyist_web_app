@@ -4,7 +4,6 @@ from models.booking import Booking
 import repositories.lesson_repository as lesson_repository
 import repositories.member_repository as member_repository
 
-# code not working at the moment! under construction
 # def check_duplicate_booking(booking):
 #     member = booking.member
 #     lesson_members = lesson_repository.members(booking.lesson)
