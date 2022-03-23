@@ -3,7 +3,7 @@
 <h2>Some upcoming lessons...</h2>
 <ul>
 {% for lesson in lessons %}
-    <li><a href="/lessons/{{lesson.id}}">{{lesson.title}}</a> - {{lesson.lesson_date}}</li>
+    <li><a class="navigation_link" href="/lessons/{{lesson.id}}">{{lesson.title}}</a> - {{lesson.lesson_date}}</li>
     <br>
 {% endfor %}
 </ul>
