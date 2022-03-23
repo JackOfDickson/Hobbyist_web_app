@@ -4,14 +4,14 @@ from models.booking import Booking
 import repositories.lesson_repository as lesson_repository
 import repositories.member_repository as member_repository
 
-def check_duplicate_booking(booking):
-    member = booking.member
-    lesson_members = lesson_repository.members(booking.lesson)
-    for lesson_member in lesson_members:
-        if member == lesson_member:
-            return True
-        else: continue
-    return False
+# def check_duplicate_booking(booking):
+#     member = booking.member
+#     lesson_members = lesson_repository.members(booking.lesson)
+#     for lesson_member in lesson_members:
+#         if member == lesson_member:
+#             return True
+#         else: continue
+#     return False
 
 def check_capacity(booking):
     lesson = booking.lesson
