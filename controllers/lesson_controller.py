@@ -1,4 +1,5 @@
 from flask import Flask, render_template, Blueprint, redirect, request
+from repositories.booking_repository import check_capacity
 import repositories.lesson_repository as lesson_repository
 from models.lesson import Lesson
 
@@ -36,8 +37,9 @@ def edit_lesson(id):
 @lessons_blueprint.route("/lessons/<id>", methods=['POST'])
 def update_lesson(id):
     title = request.form['title']
+    capacity = request.form['capacity']
     lesson_date = request.form['lesson_date']
-    lesson = Lesson(title, lesson_date, id)
+    lesson = Lesson(title, capacity, lesson_date, id)
     lesson_repository.update(lesson)
     return redirect ('/lessons')
 
