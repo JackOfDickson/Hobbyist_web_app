@@ -36,7 +36,8 @@ def edit_lesson(id):
 @lessons_blueprint.route("/lessons/<id>", methods=['POST'])
 def update_lesson(id):
     title = request.form['title']
-    lesson = Lesson(title, id)
+    lesson_date = request.form['lesson_date']
+    lesson = Lesson(title, lesson_date, id)
     lesson_repository.update(lesson)
     return redirect ('/lessons')
 

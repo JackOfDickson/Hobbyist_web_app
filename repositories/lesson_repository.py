@@ -54,5 +54,5 @@ def members(lesson):
 
 def update(lesson):
     sql = "UPDATE lessons SET (title, capacity, lesson_date) = (%s, %s, %s) WHERE id = %s"
-    values = [lesson.title, lesson.capacity, lesson.date, lesson.id]
+    values = [lesson.title, lesson.capacity, lesson.lesson_date, lesson.id]
     run_sql(sql, values)
