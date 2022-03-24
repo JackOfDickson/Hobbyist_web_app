@@ -14,15 +14,19 @@ Step 1 - Set up a database so run the following command in your terminal:
 ```
 createdb hobbyist
 ```
-Step 2 - Navigate to the hobbyist file location in your terminal and seed the data by running the console.py which can be doing when running the following command:
+Step 2 - Navigate to the hobbyist file location in your terminal and run the command:
+```
+psql -d hobbyist -f db/hobbyist.sql
+```
+Step 3 - In your terminal seed the data by running the console.py which by running the following command:
 ```
 python3 console.py
 ```
-Step 3 - Run the application by inputting into the console (need to be in the same hobbyist file as before):
+Step 4 - Run the application with the command:
 ```
 flask run
 ```
-Step 4 - Open your browser (I would recommend chrome) and enter the address of the local host port (If unsure look at your terminal look at the line "Running on" and copy and paste the url into the browser).
+Step 5 - Open your browser (I would recommend chrome) and enter the address of the local host port (If unsure look at your terminal look at the line "Running on" and copy and paste the url into the browser).
 If you need to close the app you can press control and c to stop the webpage from running.
 
 ## Navigating the website!
