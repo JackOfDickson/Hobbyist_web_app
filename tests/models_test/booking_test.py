@@ -10,7 +10,7 @@ class TestBooking(unittest.TestCase):
         self.booking1 = Booking(self.member1, self.lesson1)
         
     def test_id_is_none(self):
-        self.assertEqual(1, self.booking1.id)
+        self.assertEqual(None, self.booking1.id)
     
     def test_booking_has_member(self):
         self.assertEqual(self.member1, self.booking1.member)
