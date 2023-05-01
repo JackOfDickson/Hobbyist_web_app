@@ -1,5 +1,5 @@
 # Hello user! Welcome to my project!
-This is a application that uses python3, posegresSQL and flask which runs a webpage on a browser and manages members lessons and bookings.
+This is a application that uses python3, postgresSQL and flask which runs a webpage on a browser and manages members lessons and bookings.
 
 ## The brief
 My brief was to make an app that could:
