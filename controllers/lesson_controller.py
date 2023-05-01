@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Blueprint, redirect, request
 from repositories.booking_repository import check_capacity
 import repositories.lesson_repository as lesson_repository
+import repositories.member_repository as member_repository
 from models.lesson import Lesson
 
 lessons_blueprint = Blueprint("lessons", __name__, url_prefix="/lessons")
@@ -13,7 +14,7 @@ def lessons():
 @lessons_blueprint.route("/<id>")
 def show(id):
     lesson = lesson_repository.select(id)
-    members = lesson_repository.members(lesson)
+    members = member_repository.members_for_lesson(lesson)
     return render_template("/lessons/show.html", lesson = lesson, members = members)
 
 @lessons_blueprint.route("/new", methods = ['GET'])

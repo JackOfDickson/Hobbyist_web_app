@@ -40,17 +40,17 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-def lessons(member):
-    lessons = []
+def members_for_lesson(lesson):
+    members = []
     
-    sql = 'SELECT * FROM lessons INNER JOIN bookings ON bookings.lesson_id = lessons.id WHERE member_id = %s'
-    values = [member.id]
+    sql = 'SELECT * FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE lesson_id = %s'
+    values = [lesson.id]
     results = run_sql(sql, values)
     
     for row in results:
-        lesson = Lesson(row['title'], row['capacity'],row['lesson_date'] , row['lesson_id'])
-        lessons.append(lesson)
-    return lessons
+        member = Member(row['name'], row['member_id'])
+        members.append(member)
+    return members
     
 def update(member):
     sql = "UPDATE members SET name = %s WHERE id = %s"
