@@ -21,7 +21,7 @@ def show(id):
 def new_member():
     return render_template ('lessons/new.html')
 
-@lessons_blueprint.route("", methods=['POST'])
+@lessons_blueprint.route("/", methods=['POST'])
 def create_lesson():
     title = request.form['title']
     capacity = request.form['capacity']
