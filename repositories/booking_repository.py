@@ -15,7 +15,7 @@ import repositories.member_repository as member_repository
 
 def check_capacity(booking):
     lesson = booking.lesson
-    number_signed_up = len(lesson_repository.members(lesson))
+    number_signed_up = len(member_repository.members_for_lesson(lesson))
     if lesson.capacity > number_signed_up:
         return False
     else:
