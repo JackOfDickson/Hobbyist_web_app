@@ -17,7 +17,7 @@ def lessons():
 @lessons_blueprint.route("/<id>")
 def show(id):
     lesson = Lesson.query.get(id)
-    members = Member.query.join(Booking).filter("lesson_id" == id)
+    members = Member.query.join(Booking).filter(Booking.lesson_id == id)
     return render_template("/lessons/show.html", lesson = lesson, members = members)
 
 @lessons_blueprint.route("/new", methods = ['GET'])
