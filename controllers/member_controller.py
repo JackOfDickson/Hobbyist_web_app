@@ -1,7 +1,4 @@
 from flask import Flask, render_template, Blueprint, redirect, request
-import repositories.member_repository as member_repository
-import repositories.lesson_repository as lesson_repository
-
 from models.member import Member
 from models.lesson import Lesson
 from models.booking import Booking
