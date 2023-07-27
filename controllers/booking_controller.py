@@ -23,6 +23,14 @@ def create_booking():
     lesson_id = request.form['lesson_id']
     member = Member.query.get(member_id)
     lesson = Lesson.query.get(lesson_id)
+    members_booked_for_lesson = Member.query.join(Booking).filter(Booking.lesson_id == lesson.id)
+    for booked_member in members_booked_for_lesson:
+        if member.id == (booked_member.id):
+            print("already booked")
+            return redirect('/bookings')
+    if members_booked_for_lesson.count() >= lesson.capacity:
+        print("Class is full")
+        return redirect('/bookings')
     booking = Booking(member,lesson)
     db.session.add(booking)
     db.session.commit()
