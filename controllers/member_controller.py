@@ -3,19 +3,21 @@ import repositories.member_repository as member_repository
 import repositories.lesson_repository as lesson_repository
 
 from models.member import Member
+from models.lesson import Lesson
+from models.booking import Booking
 
 
 members_blueprint = Blueprint("members", __name__, url_prefix="/members")
 
 @members_blueprint.route("")
 def members():
-    members = member_repository.select_all()
+    members = Member.query.all()
     return render_template("members/index.html", members = members)
 
 @members_blueprint.route("/<id>")
 def show(id):
-    member = member_repository.select(id)
-    lessons = lesson_repository.lessons_for_member(member)
+    member = Member.query.get(id)
+    lessons = Lesson.query.join(Booking).filter(Booking.member_id == id)
     return render_template("/members/show.html", lessons = lessons, member = member)
 
 @members_blueprint.route("/new", methods = ['GET'])
