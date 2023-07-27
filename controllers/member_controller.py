@@ -49,4 +49,5 @@ def update_member(id):
 def delete_member(id):
     member_to_delete = Member.query.get(id)
     db.session.delete(member_to_delete)
+    db.session.commit()
     return redirect ('/members')
