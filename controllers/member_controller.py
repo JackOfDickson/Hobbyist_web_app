@@ -5,6 +5,7 @@ import repositories.lesson_repository as lesson_repository
 from models.member import Member
 from models.lesson import Lesson
 from models.booking import Booking
+from app import db
 
 
 members_blueprint = Blueprint("members", __name__, url_prefix="/members")
@@ -28,7 +29,9 @@ def new_member():
 def create_member():
     name = request.form['name']
     member = Member(name)
-    member_repository.save(member)
+    # member_repository.save(member)
+    db.session.add(member)
+    db.session.commit()
     return redirect ('/members')
     
 @members_blueprint.route("/<id>/edit", methods = ['GET'])
