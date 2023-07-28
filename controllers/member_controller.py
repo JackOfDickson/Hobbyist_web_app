@@ -48,3 +48,11 @@ def delete_member(id):
     db.session.delete(member_to_delete)
     db.session.commit()
     return redirect ('/members')
+
+@members_blueprint.route("<id>/cancel/<lesson_id>")
+def member_cancel_lesson_booking(id, lesson_id):
+    booking_to_cancel = Booking.query.filter(Booking.member_id == id).filter(Booking.lesson_id == lesson_id).one()
+    print(booking_to_cancel)
+    db.session.delete(booking_to_cancel)
+    db.session.commit()
+    return redirect(f'/members/{id}')
