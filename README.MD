@@ -58,10 +58,10 @@ If you need to close the app you can press control and c to stop the webpage fro
 ## Navigating the website!
 Once on the website you can click the following on the header of the page:
 - Hobbyist:
-Brings you to the homepage which also has some intructions for navigating the website
+Brings you to the homepage which also has some instructions for navigating the website
 
 - Current Members:
-Shows the list of the members on the system. Clicking on them shows you more details such as what lessons they are apart of and options to edit the member or delete them (deleting them will also delete the bookings associated with them)
+Shows the list of the members on the system. Clicking on them shows you more details such as what lessons they are apart of and options to edit the member, cancel bookings for lessons they have signed up or delete the member entirely (deleting them will also delete the bookings associated with them).
 
 - Upcoming Lessons:
 Shows the list of all the lessons and a date next to them. Clicking on them will also show more details like lesson capacity and the lesson's attendees as well as options to edit the lesson or cancel the lesson (cancelling the lesson also deletes the bookings made for it)
@@ -74,6 +74,3 @@ Brings up a form to register a new member
 
 - Create a new lesson
 Brings up a form to create a new lesson
-
-- Manage Bookings
-Brings up a list of bookings made which can be cancelled by clicking the "x" underneath them
