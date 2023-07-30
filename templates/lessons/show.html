@@ -5,7 +5,7 @@
 <p>Lesson Capacity: {{lesson.capacity}}</p>
 
 <h3>Book a member</h3>
-<form action="lessons/{{lesson.id}}/book">
+<form action="{{lesson.id}}/book" method="post">
     <label for="member_to_book">Member:</label>
     <select name="member_to_book", id="member_to_book">
     {% for member in members_not_in_lesson %}
