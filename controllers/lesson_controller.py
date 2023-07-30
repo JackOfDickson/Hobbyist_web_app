@@ -1,21 +1,26 @@
 from flask import Flask, render_template, Blueprint, redirect, request
-from repositories.booking_repository import check_capacity
-import repositories.lesson_repository as lesson_repository
-import repositories.member_repository as member_repository
 from models.lesson import Lesson
+from models.member import Member
+from models.booking import Booking
+from app import db
 
 lessons_blueprint = Blueprint("lessons", __name__, url_prefix="/lessons")
 
 @lessons_blueprint.route("")
 def lessons():
-    lessons = lesson_repository.select_all()
+    lessons = Lesson.query.all()
     return render_template("lessons/index.html", lessons = lessons)
 
+
+    
 @lessons_blueprint.route("/<id>")
 def show(id):
-    lesson = lesson_repository.select(id)
-    members = member_repository.members_for_lesson(lesson)
-    return render_template("/lessons/show.html", lesson = lesson, members = members)
+    lesson = Lesson.query.get(id)
+    members = Member.query.all()
+    members_in_lesson = Member.query.join(Booking).filter(Booking.lesson_id == id)
+    # members_not_in_lesson = Member.query.filter(Member.bookings != lesson.id)
+    members_not_in_lesson = filter( lambda member: (member not in members_in_lesson), members)
+    return render_template("/lessons/show.html", lesson = lesson, members_in_lesson = members_in_lesson, members_not_in_lesson = members_not_in_lesson)
 
 @lessons_blueprint.route("/new", methods = ['GET'])
 def new_member():
@@ -27,24 +32,37 @@ def create_lesson():
     capacity = request.form['capacity']
     lesson_date = request.form['lesson_date']
     lesson = Lesson(title, capacity, lesson_date)
-    lesson_repository.save(lesson)
+    db.session.add(lesson)
+    db.session.commit()
     return redirect ('/lessons')
 
 @lessons_blueprint.route("/<id>/edit", methods = ['GET'])
 def edit_lesson(id):
-    lesson = lesson_repository.select(id)
+    lesson = Lesson.query.get(id)
     return render_template('lessons/edit.html', lesson = lesson)
 
 @lessons_blueprint.route("/<id>", methods=['POST'])
 def update_lesson(id):
-    title = request.form['title']
-    capacity = request.form['capacity']
-    lesson_date = request.form['lesson_date']
-    lesson = Lesson(title, capacity, lesson_date, id)
-    lesson_repository.update(lesson)
+    lesson = Lesson.query.get(id)
+    lesson.title = request.form['title']
+    lesson.capacity = request.form['capacity']
+    lesson.lesson_date = request.form['lesson_date']
+    db.session.commit()
     return redirect ('/lessons')
 
 @lessons_blueprint.route("/<id>/delete")
 def delete_lesson(id):
-    lesson_repository.delete(id)
+    lesson_to_delete = Lesson.query.get(id)
+    db.session.delete(lesson_to_delete)
+    db.session.commit()
     return redirect ('/lessons')
+
+@lessons_blueprint.route("/<id>/book", methods=["POST"])
+def book_member_for_lesson(id):
+    member_id = request.form['member_to_book']
+    lesson = Lesson.query.get(id)
+    member = Member.query.get(member_id)
+    booking = Booking(member, lesson)
+    db.session.add(booking)
+    db.session.commit()
+    return redirect (f'/lessons/{id}')
