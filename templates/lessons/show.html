@@ -4,9 +4,20 @@
 <p><a class="edit" href="/lessons/{{lesson.id}}/edit">edit</a> <a class="delete" href="/lessons/{{lesson.id}}/delete">Cancel Lesson</a></p>
 <p>Lesson Capacity: {{lesson.capacity}}</p>
 
+<h3>Book a member</h3>
+<form action="lessons/{{lesson.id}}/book">
+    <label for="member_to_book">Member:</label>
+    <select name="member_to_book", id="member_to_book">
+    {% for member in members_not_in_lesson %}
+        <option value={{member.id}}>{{member.name}}</option>
+    {% endfor %}
+    </select>
+    <input type="submit">
+</form>
+
 <h3>Attendees:</h3>
 <ul>
-{% for member in members %}
+{% for member in members_in_lesson %}
     <li><a class="navigation_link" href="/members/{{member.id}}">{{member.name}}</a></li>
 {% endfor %}
 </ul>
