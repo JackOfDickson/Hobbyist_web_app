@@ -11,11 +11,16 @@ def lessons():
     lessons = Lesson.query.all()
     return render_template("lessons/index.html", lessons = lessons)
 
+
+    
 @lessons_blueprint.route("/<id>")
 def show(id):
     lesson = Lesson.query.get(id)
-    members = Member.query.join(Booking).filter(Booking.lesson_id == id)
-    return render_template("/lessons/show.html", lesson = lesson, members = members)
+    members = Member.query.all()
+    members_in_lesson = Member.query.join(Booking).filter(Booking.lesson_id == id)
+    # members_not_in_lesson = Member.query.filter(Member.bookings != lesson.id)
+    members_not_in_lesson = filter( lambda member: (member not in members_in_lesson), members)
+    return render_template("/lessons/show.html", lesson = lesson, members_in_lesson = members_in_lesson, members_not_in_lesson = members_not_in_lesson)
 
 @lessons_blueprint.route("/new", methods = ['GET'])
 def new_member():
@@ -51,3 +56,13 @@ def delete_lesson(id):
     db.session.delete(lesson_to_delete)
     db.session.commit()
     return redirect ('/lessons')
+
+@lessons_blueprint.route("/<id>/book", methods=["POST"])
+def book_member_for_lesson(id):
+    member_id = request.form['member_to_book']
+    lesson = Lesson.query.get(id)
+    member = Member.query.get(member_id)
+    booking = Booking(member, lesson)
+    db.session.add(booking)
+    db.session.commit()
+    return redirect (f'/lessons/{id}')
