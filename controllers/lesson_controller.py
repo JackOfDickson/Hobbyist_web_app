@@ -18,8 +18,7 @@ def show(id):
     lesson = Lesson.query.get(id)
     members = Member.query.all()
     members_in_lesson = Member.query.join(Booking).filter(Booking.lesson_id == id)
-    # members_not_in_lesson = Member.query.filter(Member.bookings != lesson.id)
-    members_not_in_lesson = filter( lambda member: (member not in members_in_lesson), members)
+    members_not_in_lesson = [member for member in members if member not in members_in_lesson]
     return render_template("/lessons/show.html", lesson = lesson, members_in_lesson = members_in_lesson, members_not_in_lesson = members_not_in_lesson)
 
 @lessons_blueprint.route("/new", methods = ['GET'])
