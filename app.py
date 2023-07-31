@@ -1,9 +1,10 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from settings import postgresqlUser
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://user@localhost:5432/hobbyist"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{postgresqlUser}@localhost:5432/hobbyist"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
