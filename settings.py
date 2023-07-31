@@ -1,1 +1,0 @@
-postgresqlUser = "user"
