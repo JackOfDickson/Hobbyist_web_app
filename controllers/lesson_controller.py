@@ -58,10 +58,12 @@ def delete_lesson(id):
 
 @lessons_blueprint.route("/<id>/book", methods=["POST"])
 def book_member_for_lesson(id):
-    member_id = request.form['member_to_book']
     lesson = Lesson.query.get(id)
-    member = Member.query.get(member_id)
-    booking = Booking(member, lesson)
-    db.session.add(booking)
-    db.session.commit()
+    member_id = request.form['member_to_book']
+    members_booked_for_lesson = Member.query.join(Booking).filter(Booking.lesson_id == lesson.id)
+    if members_booked_for_lesson.count() < lesson.capacity:
+        member = Member.query.get(member_id)
+        booking = Booking(member, lesson)
+        db.session.add(booking)
+        db.session.commit()
     return redirect (f'/lessons/{id}')
