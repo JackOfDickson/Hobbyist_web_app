@@ -26,6 +26,7 @@ pip3 install Flask
 pip3 install python-dotenv
 pip3 install flask-sqlalchemy
 pip3 install flask-migrate
+pip3 install pyscopg2
 ```
 
 ### Getting Started
