@@ -9,11 +9,11 @@ import click
 @click.command('seed')
 @with_appcontext
 def seed():
+    Booking.query.delete()
+    Lesson.query.delete()
+    Member.query.delete()
     lesson1 = Lesson("Cake Baking", 8, "2022-03-29")
     lesson2 = Lesson("Watercolour painting", 12, "2022-03-29")
-
-    # db.session.add(lesson1)
-    # db.session.add(lesson2)
 
     member1 = Member("Carl Marks")
     member2 = Member("Walter White")
