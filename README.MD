@@ -3,7 +3,7 @@ This is a refactor of my first project at CodeClan which uses python3, flask, po
 The application runs a webpage on a browser and manages members lessons and bookings.
 
 ## The brief
-My brief was to make an app that could:
+My brief was to make a lesson booking app that could:
 - Create and edit lessons within the app
 - Create and edit members within the app
 - To be able to book members into lessons
