@@ -1,5 +1,5 @@
 # Hello user! Welcome to my project!
-This is a refactor of my first project at CodeClan which uses python3, flask, postgresql and now includes SQLAlchemy (was using psycopg2 in the first version)!
+This is a refactor of my first project at CodeClan which uses python3, flask, postgresql and now includes SQLAlchemy!
 The application runs a webpage on a browser and manages members lessons and bookings.
 
 ## The brief
